@@ -130,7 +130,7 @@ class GameHelper:
         self.Pics = {}
         self.PicsCV = {}
         st = time.time()
-        self.Handle = win32gui.FindWindow("Chrome_WidgetWin_0", None)
+        self.Handle = win32gui.FindWindow("Chrome_WidgetWin_0","微乐跑得快")
         self.Interrupt = False
         self.RealRate = (1440, 810)
         self.GetZoomRate()
@@ -153,7 +153,7 @@ class GameHelper:
         while try_count > 0 and not success:
             try:
                 try_count -= 1
-                self.Handle = win32gui.FindWindow("UnityWndClass", None)
+                self.Handle = win32gui.FindWindow("Chrome_WidgetWin_0","微乐跑得快")
                 win32gui.SetActiveWindow(self.Handle)
                 hwnd = self.Handle
                 left, top, right, bot = win32gui.GetWindowRect(hwnd)
@@ -276,7 +276,7 @@ class GameHelper:
         y = (y / 810) * self.RealRate[1]
         x = int(x)
         y = int(y)
-        self.Handle = win32gui.FindWindow("UnityWndClass", None)
+        self.Handle = win32gui.FindWindow("Chrome_WidgetWin_0","微乐跑得快")
         left, top, _, _ = win32gui.GetWindowRect(self.Handle)
         x, y = int(left + x), int(top + y)
 
