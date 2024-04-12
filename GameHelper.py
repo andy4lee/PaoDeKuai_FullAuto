@@ -130,7 +130,7 @@ class GameHelper:
         self.Pics = {}
         self.PicsCV = {}
         st = time.time()
-        self.Handle = win32gui.FindWindow("UnityWndClass", None)
+        self.Handle = win32gui.FindWindow("Chrome_WidgetWin_0", None)
         self.Interrupt = False
         self.RealRate = (1440, 810)
         self.GetZoomRate()
