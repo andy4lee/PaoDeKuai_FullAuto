@@ -90,17 +90,19 @@ def init_model2(model_path, wp_model_path):
 
 
 def predict_by_model(cards, llc):
+    # 54张牌
     AllEnvCard = [3, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 6, 6, 6, 6, 7, 7, 7, 7,
                   8, 8, 8, 8, 9, 9, 9, 9, 10, 10, 10, 10, 11, 11, 11, 11, 12,
                   12, 12, 12, 13, 13, 13, 13, 14, 14, 14, 14, 17, 17, 17, 17, 20, 30]
+    # 手牌在程序中映射的值
     RealCard2EnvCard = {'3': 3, '4': 4, '5': 5, '6': 6, '7': 7,
                         '8': 8, '9': 9, 'T': 10, 'J': 11, 'Q': 12,
                         'K': 13, 'A': 14, '2': 17, 'X': 20, 'D': 30}
     env.reset()
-    other_hand_cards = []
-    card_play_data_list = {}
-    three_landlord_cards_env = [RealCard2EnvCard[card] for card in llc]
-    user_hand_cards_env = [RealCard2EnvCard[card] for card in cards]
+    other_hand_cards = []  # 除开AI手牌之外其它的所有牌
+    card_play_data_list = {}  # 三家牌+地主牌
+    three_landlord_cards_env = [RealCard2EnvCard[card] for card in llc]  # 地主牌
+    user_hand_cards_env = [RealCard2EnvCard[card] for card in cards]  # 手牌
     three_landlord_cards_env.sort()
     user_hand_cards_env.sort()
     for i in set(AllEnvCard):
